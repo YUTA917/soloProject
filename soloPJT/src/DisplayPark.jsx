@@ -5,18 +5,22 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-import image1 from "./image/明石公園.jpeg";
 
 export default function DisplayPark(props) {
 	const { parks } = props;
+
+	function getImageUrl(name) {
+		return new URL(`./dir/${name}.jpeg`, import.meta.url).href;
+	}
+
 	return parks.map((ele, index) => (
 		<Card sx={{ maxWidth: 345 }}>
 			<CardMedia
 				component="img"
 				alt={ele.park_name}
 				height="140"
-				// image={`./image/${ele.park_name}.jpeg`}
-				image={image1}
+				// image={`./public/image/${ele.park_name}.jpeg`}
+				image={getImageUrl(ele.park_name)}
 			/>
 			<CardContent>
 				<Typography gutterBottom variant="h5" component="div">
