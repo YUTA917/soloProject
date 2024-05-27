@@ -4,14 +4,14 @@
 	"version": "0.0.0",
 	"scripts": {
 		"dev": "vite",
-		"build": "vite build",
+		"build": "npm install",
 		"test": "mocha",
 		"lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
 		"preview": "vite preview",
 		"makeMigrate": "npx knex migrate:make --knexfile src/db/knexfile.js",
 		"migration_latest": "npx knex migrate:latest --knexfile src/db/knexfile.js",
 		"seed-data": "npx knex seed:run --knexfile src/db/knexfile.js",
-		"start": "nodemon src/router.js"
+		"start": "node src/router.js"
 	},
 	"dependencies": {
 		"@emotion/react": "^11.11.4",
@@ -30,6 +30,7 @@
 		"@types/react": "^18.2.66",
 		"@types/react-dom": "^18.2.22",
 		"@vitejs/plugin-react": "^4.2.1",
+		"chai": "^4.3.6",
 		"eslint": "^8.57.0",
 		"eslint-plugin-react": "^7.34.1",
 		"eslint-plugin-react-hooks": "^4.6.0",

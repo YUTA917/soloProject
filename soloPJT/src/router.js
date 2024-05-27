@@ -31,15 +31,29 @@ app.get("/api/cities", async (req, res) => {
 });
 
 app.get("/api/park", async (req, res) => {
-	let data = await db("park AS p")
-		.select(
-			{ park_name: "p.name" },
-			{ city_name: "c.name" },
-			{ prefecture_id: "c.prefecture_id" },
-			{ prefecture_name: "pr.name" }
-		)
-		.join("cities AS c", "p.city_id", "=", "c.id")
-		.join("prefectures AS pr", "c.prefecture_id", "=", "pr.id");
+	let data;
+	if (req.query.preId === undefined) {
+		data = await db("park AS p")
+			.select(
+				{ park_name: "p.name" },
+				{ city_name: "c.name" },
+				{ prefecture_id: "c.prefecture_id" },
+				{ prefecture_name: "pr.name" }
+			)
+			.join("cities AS c", "p.city_id", "=", "c.id")
+			.join("prefectures AS pr", "c.prefecture_id", "=", "pr.id");
+	} else {
+		data = await db("park AS p")
+			.select(
+				{ park_name: "p.name" },
+				{ city_name: "c.name" },
+				{ prefecture_id: "c.prefecture_id" },
+				{ prefecture_name: "pr.name" }
+			)
+			.join("cities AS c", "p.city_id", "=", "c.id")
+			.join("prefectures AS pr", "c.prefecture_id", "=", "pr.id")
+			.where({ prefecture_id: req.query.preId });
+	}
 
 	res.status(200)
 		.set({ "Access-Control-Allow-Origin": "http://localhost:5173" })
