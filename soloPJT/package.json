@@ -2,6 +2,7 @@
 	"name": "solopjt",
 	"private": true,
 	"version": "0.0.0",
+	"homepage": "/path",
 	"scripts": {
 		"dev": "vite",
 		"build": "vite build ",
