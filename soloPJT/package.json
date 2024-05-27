@@ -4,14 +4,15 @@
 	"version": "0.0.0",
 	"scripts": {
 		"dev": "vite",
-		"build": "npm install && npm run migrate-latest && npm run seed-data && npm run vite build",
+		"build": "vite build",
 		"test": "mocha",
 		"lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
 		"preview": "vite preview",
 		"makeMigrate": "npx knex migrate:make --knexfile src/db/knexfile.js",
 		"migrate-latest": "npx knex migrate:latest --knexfile src/db/knexfile.js",
 		"seed-data": "npx knex seed:run --knexfile src/db/knexfile.js",
-		"start": "nodemon src/router.js"
+		"start": "nodemon src/router.js",
+		"deploy": "npm install && npm run migrate-latest && npm run seed-data &&npm run build"
 	},
 	"dependencies": {
 		"@emotion/react": "^11.11.4",
