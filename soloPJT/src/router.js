@@ -31,6 +31,7 @@ app.get("/api/cities", async (req, res) => {
 });
 
 app.get("/api/park", async (req, res) => {
+	console.log("get");
 	let data;
 	if (req.query.preId === undefined) {
 		data = await db("park AS p")
