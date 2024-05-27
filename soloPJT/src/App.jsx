@@ -7,6 +7,7 @@ import NavBar from "./NavBar";
 import NewAddButton from "./NewAddButton";
 
 import "./App.css";
+import DisplayPark from "./DisplayPark";
 
 function App() {
 	// const [display, setDisplay] = useState(true);
@@ -37,6 +38,7 @@ function App() {
 				setDisplayState={setDisplayState}
 			></NewAddButton>
 			{/* <DisplayBooks books={books}></DisplayBooks> */}
+			<DisplayPark></DisplayPark>
 			<DisplayParks parks={parks}></DisplayParks>
 		</>
 	);
