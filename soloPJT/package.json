@@ -9,7 +9,7 @@
 		"lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
 		"preview": "vite preview",
 		"makeMigrate": "npx knex migrate:make --knexfile src/db/knexfile.js",
-		"migration_latest": "npx knex migrate:latest --knexfile src/db/knexfile.js",
+		"migration-latest": "npx knex migrate:latest --knexfile src/db/knexfile.js",
 		"seed-data": "npx knex seed:run --knexfile src/db/knexfile.js",
 		"start": "nodemon src/router.js"
 	},
