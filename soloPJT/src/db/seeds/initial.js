@@ -7715,9 +7715,9 @@ exports.seed = async function (knex) {
 	]);
 	await knex("park").del();
 	await knex("park").insert([
-		{ user_id: 1, city_id: 1, name: "舞鶴公園" },
-		{ user_id: 3, city_id: 2, name: "臨海公園" },
-		{ user_id: 3, city_id: 2, name: "明石公園" },
+		{ user_id: 1, city_id: 1075, name: "舞鶴公園" },
+		{ user_id: 3, city_id: 1093, name: "明石公園" },
+		{ user_id: 3, city_id: 1261, name: "安満遺跡公園" },
 	]);
 	await knex("picture_books").del();
 	await knex("picture_books").insert([
