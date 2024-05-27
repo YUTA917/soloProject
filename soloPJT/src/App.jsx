@@ -3,33 +3,40 @@ import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import DisplayBooks from "./DisplayBooks";
 import DisplayParks from "./DisplayParks";
+import NavBar from "./NavBar";
+import NewAddButton from "./NewAddButton";
 
 import "./App.css";
 
 function App() {
-	const [count, setCount] = useState(0);
+	// const [display, setDisplay] = useState(true);
 	const [books, setBooks] = useState([]);
 	const [parks, setParks] = useState([]);
+	const [displayState, setDisplayState] = useState(true);
 
 	useEffect(() => {
-		fetch("http://localhost:8080/api/books")
-			.then((res) => res.text())
-			.then((res) => JSON.parse(res))
-			.then((res) => setBooks(res));
-
-		fetch("http://localhost:8080/api/park")
+		fetch("/api/park")
 			.then((res) => res.text())
 			.then((res) => JSON.parse(res))
 			.then((res) => setParks(res));
+	}, [displayState]);
+
+	useEffect(() => {
+		fetch("/api?table=picture_books")
+			.then((res) => res.text())
+			.then((res) => JSON.parse(res))
+			.then((res) => setBooks(res));
 	}, []);
 
 	return (
 		<>
-			<p>aaa</p>
-			{/* <NavBar>
-				<PostItem></PostItem>
-			</NavBar> */}
-			<DisplayBooks books={books}></DisplayBooks>
+			<NavBar>{/* <PostItem></PostItem> */}</NavBar>
+
+			<NewAddButton
+				displayState={displayState}
+				setDisplayState={setDisplayState}
+			></NewAddButton>
+			{/* <DisplayBooks books={books}></DisplayBooks> */}
 			<DisplayParks parks={parks}></DisplayParks>
 		</>
 	);
