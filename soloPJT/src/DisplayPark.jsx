@@ -5,6 +5,7 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
+import image1 from "./image/明石公園.jpeg";
 
 export default function DisplayPark(props) {
 	const { parks } = props;
@@ -14,7 +15,8 @@ export default function DisplayPark(props) {
 				component="img"
 				alt={ele.park_name}
 				height="140"
-				image={`./image/${ele.park_name}.jpeg`}
+				// image={`./image/${ele.park_name}.jpeg`}
+				image={image1}
 			/>
 			<CardContent>
 				<Typography gutterBottom variant="h5" component="div">
