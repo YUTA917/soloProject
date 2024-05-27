@@ -4,7 +4,7 @@
 	"version": "0.0.0",
 	"scripts": {
 		"dev": "vite",
-		"build": "npm install && npm run migrate-latest && npm run seed-data && vite build",
+		"build": "npm install && npm run migrate-latest && npm run seed-data && npm run vite build",
 		"test": "mocha",
 		"lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
 		"preview": "vite preview",
