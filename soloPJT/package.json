@@ -12,7 +12,7 @@
 		"migrate-latest": "npx knex migrate:latest --knexfile src/db/knexfile.js",
 		"seed-data": "npx knex seed:run --knexfile src/db/knexfile.js",
 		"start": "nodemon src/router.js",
-		"deploy": "npm install --production=false  && npm run migrate-latest && npm run seed-data &&npm run build"
+		"deploy": "npm install && npm run migrate-latest && npm run seed-data &&npm run build"
 	},
 	"dependencies": {
 		"@emotion/react": "^11.11.4",

@@ -38,7 +38,7 @@ function App() {
 				setDisplayState={setDisplayState}
 			></NewAddButton>
 			{/* <DisplayBooks books={books}></DisplayBooks> */}
-			<DisplayPark></DisplayPark>
+			<DisplayPark parks={parks}></DisplayPark>
 			<DisplayParks parks={parks}></DisplayParks>
 		</>
 	);
