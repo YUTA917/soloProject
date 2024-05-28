@@ -19,7 +19,10 @@ function App() {
 		fetch("/api/park")
 			.then((res) => res.text())
 			.then((res) => JSON.parse(res))
-			.then((res) => setParks(res));
+			.then((res) => {
+				setParks(res);
+				console.log(res);
+			});
 	}, [displayState]);
 
 	useEffect(() => {
@@ -39,7 +42,7 @@ function App() {
 			></NewAddButton>
 			{/* <DisplayBooks books={books}></DisplayBooks> */}
 			<DisplayPark parks={parks}></DisplayPark>
-			<DisplayParks parks={parks}></DisplayParks>
+			{/* <DisplayParks parks={parks}></DisplayParks> */}
 		</>
 	);
 }

@@ -32,7 +32,7 @@ app.get("/api/cities", async (req, res) => {
 });
 
 app.get("/api/park", async (req, res) => {
-	console.log("get");
+	console.log(req.query.preId);
 	let data;
 	if (req.query.preId === undefined) {
 		data = await db("park AS p")
@@ -44,6 +44,7 @@ app.get("/api/park", async (req, res) => {
 			)
 			.join("cities AS c", "p.city_id", "=", "c.id")
 			.join("prefectures AS pr", "c.prefecture_id", "=", "pr.id");
+		console.log(data);
 	} else {
 		data = await db("park AS p")
 			.select(
@@ -56,7 +57,6 @@ app.get("/api/park", async (req, res) => {
 			.join("prefectures AS pr", "c.prefecture_id", "=", "pr.id")
 			.where({ prefecture_id: req.query.preId });
 	}
-
 	res.status(200)
 		.set({ "Access-Control-Allow-Origin": "http://localhost:5173" })
 		.json(data)
